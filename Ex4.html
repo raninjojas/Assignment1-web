@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Investment Capital Calculation</title>
+  <style>
+    /* CSS styles for better readability */
+    .code-block {
+      background-color: #f5f5f5;
+      padding: 10px;
+      font-family: Consolas, monospace;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h2>Investment Capital Calculation</h2>
+  <button onclick="calculateCapital()">Calculate Capital</button>
+  <div id="output" class="code-block"></div>
+
+  <script>
+    function calculateCapital() {
+      var amount = prompt("The Amount you need to invest:");
+      var interestRate = prompt("Annual percentage interest:");
+      var years = prompt("Years:");
+
+      if (amount <= 0 || interestRate <= 0 || years <= 0 || isNaN(amount) || isNaN(interestRate) || isNaN(years)) {
+        document.getElementById("output").innerHTML = "Invalid input. Please enter valid values.";
+        return;
+      }
+
+      var output = "";
+      var capital = parseFloat(amount); // the amount we start is our capital
+      for (var i = 1; i <= parseInt(years); i++) {
+        capital += (capital * (parseFloat(interestRate) / 100));
+        output += "Capital after " + i + " year: " + capital + "€<br>";
+      }
+
+      document.getElementById("output").innerHTML = output;
+    }
+  </script>
+</body>
+</html>

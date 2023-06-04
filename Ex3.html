@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Display All the Reached Years</title>
+  <script>
+    function getReachedYears() {
+      var age = prompt("Click to enter your age:");
+
+      if (age <= 0) {
+        document.getElementById("output").innerHTML = "Invalid age. Please enter a valid age.";
+        return;
+      }
+
+      var output = "";
+      for (var year = 1; year <= age; year++) {
+        output += "Reached year: " + year + "<br>";
+      }
+
+      document.getElementById("output").innerHTML = output;
+    }
+  </script>
+</head>
+<body>
+  <h1>Display Reached Years </h1>
+  <button onclick="getReachedYears()">Click to Enter your Age</button>
+  <div id="output"></div>
+</body>
+</html>
